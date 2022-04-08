@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps = async () => {
 	const backendData = path.join(process.cwd(), "backdata");
 	const files = await fs.readdir(backendData);
 	const fileContents = await fs.readFile(
-		path.join(backendData, files[0]),
+		path.join(backendData, files.filter((f) => f.startsWith('projs'))[0]),
 		"utf8"
 	);
 	const projects = JSON.parse(fileContents).projects as PJ[];

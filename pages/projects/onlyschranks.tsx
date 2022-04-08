@@ -12,13 +12,15 @@ import {
 	useMantineTheme,
 	MediaQuery,
 	Burger,
+	Image,
+	SimpleGrid,
 } from "@mantine/core";
 import { useState } from "react";
 import Link from "next/link";
 
-type PostProps = { title?: string; description?: string };
+type PostProps = { title?: string; description?: string; imglink?: string };
 
-const Post = ({ title, description }: PostProps) => {
+const Post = ({ title, description, imglink }: PostProps) => {
 	return (
 		<div>
 			<Paper shadow="xs" p="md">
@@ -26,11 +28,32 @@ const Post = ({ title, description }: PostProps) => {
 					{title ? title : "Sexy Schränke in deiner Umgebung"}
 				</Title>
 				<Divider my="sm" />
-				<Text>
-					{description
-						? description
-						: "Jetzt Schränke in deiner Umgebung finden"}
-				</Text>
+				{imglink ? (
+					<SimpleGrid cols={2} breakpoints={[{ maxWidth: 980, cols: 2, spacing: 'xs' },{ maxWidth: 600, cols: 1, spacing: 'xs' },]}>
+						<Image
+							src={imglink}
+							alt={description ? description : "Sexy Schränke"}
+							style={{
+								width: "30%",
+								height: "10%",
+								maxWidth: "50%",
+								maxHeight: "25%",
+							}}
+							radius="md"
+						/>
+						<p>
+							{description
+								? description
+								: "Jetzt Schränke in deiner Umgebung finden"}
+						</p>
+					</SimpleGrid>
+				) : (
+					<Text>
+						{description
+							? description
+							: "Jetzt Schränke in deiner Umgebung finden"}
+					</Text>
+				)}
 			</Paper>
 		</div>
 	);
@@ -81,15 +104,15 @@ const Projects: NextPage = () => {
 							/>
 						</MediaQuery>
 						<MediaQuery largerThan="sm" styles={{ paddingLeft: "3vh" }}>
-							<Link passHref href='/projects'>
-							<Title order={1}>
-								<Text color={theme.white} inherit component="span">
-									Only
-								</Text>
-								<Text color={theme.primaryColor} inherit component="span">
-									Schranks
-								</Text>
-							</Title>
+							<Link passHref href="/projects">
+								<Title order={1}>
+									<Text color={theme.white} inherit component="span">
+										Only
+									</Text>
+									<Text color={theme.primaryColor} inherit component="span">
+										Schranks
+									</Text>
+								</Title>
 							</Link>
 						</MediaQuery>
 					</div>
@@ -97,6 +120,7 @@ const Projects: NextPage = () => {
 			}
 		>
 			<Stack
+				align="center"
 				justify="flex-start"
 				spacing="xs"
 				sx={(theme) => ({
@@ -104,10 +128,29 @@ const Projects: NextPage = () => {
 						theme.colorScheme === "dark"
 							? theme.colors.dark[8]
 							: theme.colors.gray[0],
-					height: 300,
+					height: 'auto',
 				})}
 			>
-				<Post />
+				<Post
+					title="Demo"
+					description="Lorem Ipsum dolor sit amet"
+					imglink="https://i.imgur.com/xKigxoX.jpg"
+				/>
+				<Post
+					title="Demo"
+					description="Lorem Ipsum dolor sit amet"
+					imglink="https://i.imgur.com/xKigxoX.jpg"
+				/>
+				<Post
+					title="Demo"
+					description="Lorem Ipsum dolor sit amet"
+					imglink="https://i.imgur.com/xKigxoX.jpg"
+				/>
+				<Post
+					title="Demo"
+					description="Lorem Ipsum dolor sit amet"
+					imglink="https://i.imgur.com/xKigxoX.jpg"
+				/>
 			</Stack>
 		</AppShell>
 	);
