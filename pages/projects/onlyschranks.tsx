@@ -9,19 +9,27 @@ import {
 	Text,
 	Divider,
 	Paper,
-	useMantineTheme ,
+	useMantineTheme,
+	MediaQuery,
+	Burger,
 } from "@mantine/core";
+import { useState } from "react";
+import Link from "next/link";
 
-type PostProps = {title?:string,description?:string};
+type PostProps = { title?: string; description?: string };
 
-const Post = ({title, description}: PostProps) => {
+const Post = ({ title, description }: PostProps) => {
 	return (
 		<div>
 			<Paper shadow="xs" p="md">
-				<Title order={4}>{title?title: "Sexy Schränke in deiner Umgebung"}</Title>
+				<Title order={4}>
+					{title ? title : "Sexy Schränke in deiner Umgebung"}
+				</Title>
 				<Divider my="sm" />
 				<Text>
-					{description?description: "Jetzt Schränke in deiner Umgebung finden"}
+					{description
+						? description
+						: "Jetzt Schränke in deiner Umgebung finden"}
 				</Text>
 			</Paper>
 		</div>
@@ -30,11 +38,26 @@ const Post = ({title, description}: PostProps) => {
 
 const Projects: NextPage = () => {
 	const theme = useMantineTheme();
+	const [opened, setOpened] = useState(false);
 	return (
 		<AppShell
-			padding="md"
+			navbarOffsetBreakpoint="sm"
+			fixed
+			styles={{
+				main: {
+					background:
+						theme.colorScheme === "dark"
+							? theme.colors.dark[8]
+							: theme.colors.gray[0],
+				},
+			}}
 			navbar={
-				<Navbar width={{ base: 300 }} height={500} p="xs">
+				<Navbar
+					p="md"
+					hiddenBreakpoint="sm"
+					hidden={!opened}
+					width={{ sm: 200, lg: 300 }}
+				>
 					<Stack spacing="xl">
 						<Button>Start</Button>
 						<Button>Benachrichtigungen</Button>
@@ -45,24 +68,33 @@ const Projects: NextPage = () => {
 			}
 			header={
 				<Header height={60} p="xs">
-					<Title style={{ paddingLeft: "20px" }} order={1}>
-					<Text color={theme.white} inherit component="span">
-						Only
-						</Text>
-						<Text color={theme.primaryColor} inherit component="span">
-							Schranks
-						</Text>
-					</Title>
+					<div
+						style={{ display: "flex", alignItems: "center", height: "100%" }}
+					>
+						<MediaQuery largerThan="sm" styles={{ display: "none" }}>
+							<Burger
+								opened={opened}
+								onClick={() => setOpened((o) => !o)}
+								size="sm"
+								color={theme.colors.gray[6]}
+								mr="xl"
+							/>
+						</MediaQuery>
+						<MediaQuery largerThan="sm" styles={{ paddingLeft: "3vh" }}>
+							<Link passHref href='/projects'>
+							<Title order={1}>
+								<Text color={theme.white} inherit component="span">
+									Only
+								</Text>
+								<Text color={theme.primaryColor} inherit component="span">
+									Schranks
+								</Text>
+							</Title>
+							</Link>
+						</MediaQuery>
+					</div>
 				</Header>
 			}
-			styles={(theme) => ({
-				main: {
-					backgroundColor:
-						theme.colorScheme === "dark"
-							? theme.colors.dark[8]
-							: theme.colors.gray[0],
-				},
-			})}
 		>
 			<Stack
 				justify="flex-start"
@@ -75,8 +107,8 @@ const Projects: NextPage = () => {
 					height: 300,
 				})}
 			>
-                <Post/>
-            </Stack>
+				<Post />
+			</Stack>
 		</AppShell>
 	);
 };
