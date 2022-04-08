@@ -1,7 +1,6 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
-import styles from "../styles/Home.module.css";
 import { Container, Group, Button, Popover, Text } from "@mantine/core";
 import { useState } from "react";
 import path from "path";
@@ -84,14 +83,14 @@ const Home: NextPage = ({
 	data,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
 	return (
-		<div className={styles.container}>
+		<div className='container'>
 			<Head>
 				<title>Creative Coding by M</title>
 				<meta name="description" content="Look at the Title 5Head" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<main className={styles.main} >
+			<main className='main' >
 				<Container styles={(theme) => ({
 				main: {
 					backgroundColor:

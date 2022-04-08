@@ -86,6 +86,9 @@ const Projects: NextPage = () => {
 						<Button>Benachrichtigungen</Button>
 						<Button>Nachichten</Button>
 						<Button>Abonnements</Button>
+						<Link passHref href='https://www.instagram.com/schrank.der.kinky.dinge/'>
+							<Button color='red'>Exklusive leaks!!!</Button>
+						</Link>
 					</Stack>
 				</Navbar>
 			}
