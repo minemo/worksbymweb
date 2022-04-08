@@ -9,20 +9,12 @@
             "tags": ["tmijs", "live", "chat"]
         },
         {
-            "name":"Tchat",
-            "description":"A simple chat application",
-            "link":"/projects/tchat",
+            "name":"OnlySchranks",
+            "description":"This cannot be described",
+            "link":"/projects/onlyschranks",
             "image":"https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://twitch.com&size=256",
-            "color":"6441A4",
-            "tags": ["tmijs", "live", "chat"]
-        },
-        {
-            "name":"Tchat",
-            "description":"A simple chat application",
-            "link":"/projects/tchat",
-            "image":"https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://twitch.com&size=256",
-            "color":"6441A4",
-            "tags": ["tmijs", "live", "chat"]
+            "color":"f652a0",
+            "tags": ["onlyfans", "images", "chat"]
         }
     ]
 }

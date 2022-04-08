@@ -113,13 +113,6 @@ const Home: NextPage = ({
 						<Link passHref href="/todo">
 							<Button size="xl">Links</Button>
 						</Link>
-						<ProjectButton
-							color="pink"
-							buttonText="OnlySchranks"
-							popupText={`Join ${Math.round(Math.random()*9999)} users`}
-							popupColor="red"
-							href="/onlyschranks"
-						></ProjectButton>
 					</Group>
 				</Container>
 			</main>

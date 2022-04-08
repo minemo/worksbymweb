@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
 	Grid,
 	Accordion,
+	Container,
 	Badge,
 	Avatar,
 	Title,
@@ -64,16 +65,25 @@ const Projects: NextPage = ({
 	return (
 		<div style={{ paddingLeft: "2vh", paddingRight: "2vh" }}>
 			<Link passHref href="/">
-				<Title style={{padding: '1vh'}} order={1}><Text color={theme.white} inherit component="span">Projects</Text></Title>
+				<Title style={{ padding: "1vh" }} order={1}>
+					<Text color={theme.white} inherit component="span">
+						Projects
+					</Text>
+				</Title>
 			</Link>
 			<Grid grow gutter={5}>
 				{projects.map((p) => (
 					<Grid.Col span={4} key={p.name + "_" + projects.indexOf(p)}>
-						<div
+						<Container
 							style={{
-								background: "rgb(240,240,240)",
+								backgroundColor:
+									theme.colorScheme === "dark"
+										? theme.colors.dark[6]
+										: theme.colors.gray[1],
 								borderRadius: "25px",
-								paddingBottom: "15px",
+								paddingLeft: "0",
+								paddingRight: "0",
+								paddingBottom: "25px",
 							}}
 						>
 							<Grid
@@ -94,7 +104,7 @@ const Projects: NextPage = ({
 										<Avatar src={p.image} alt={p.description}></Avatar>
 									</div>
 								</Grid.Col>
-								<Grid.Col lg={2}>
+								<Grid.Col lg={p.name.length / 2 - 1}>
 									<Title order={2} align="center">
 										<Text color={theme.white} inherit component="span">
 											{p.name}
@@ -128,7 +138,7 @@ const Projects: NextPage = ({
 									})}
 								</Accordion.Item>
 							</Accordion>
-						</div>
+						</Container>
 					</Grid.Col>
 				))}
 			</Grid>
