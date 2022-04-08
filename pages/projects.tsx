@@ -113,7 +113,7 @@ const Projects: NextPage = ({
 								</Grid.Col>
 								<Grid.Col lg={1}>
 									<Link passHref href={p.link}>
-										<Button color="green">Open</Button>
+										<Button component="a" color="green">Open</Button>
 									</Link>
 								</Grid.Col>
 							</Grid>
