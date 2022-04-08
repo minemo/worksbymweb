@@ -15,6 +15,14 @@
             "image":"https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://onlyfans.com&size=256",
             "color":"f652a0",
             "tags": ["onlyfans", "schrank", "images", "chat"]
+        },
+        {
+            "name":"Processing Projects",
+            "description":"The Github repository for most of my Processing projects",
+            "link":"https://github.com/minemo/processing4sketches",
+            "image":"https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://github.com&size=256",
+            "color":"0077b6",
+            "tags": ["github", "processing", "generative", "art", "images"]
         }
     ]
 }

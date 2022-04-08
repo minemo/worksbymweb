@@ -1,6 +1,7 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
+import style from '../styles/Home.module.css'
 import { Container, Group, Button, Popover, Text } from "@mantine/core";
 import { useState } from "react";
 import path from "path";
@@ -90,7 +91,7 @@ const Home: NextPage = ({
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<main className='main' >
+			<main className={style.main} >
 				<Container styles={(theme) => ({
 				main: {
 					backgroundColor:

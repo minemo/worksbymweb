@@ -14,10 +14,3 @@ a {
 * {
 	box-sizing: border-box;
 }
-
-.main {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-}
