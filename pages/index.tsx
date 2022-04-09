@@ -2,7 +2,7 @@ import type { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import Head from "next/head";
 import Link from "next/link";
 import style from '../styles/Home.module.css'
-import { Container, Group, Button, Popover, Text } from "@mantine/core";
+import { Container, Group, Button, Popover, Text, Title } from "@mantine/core";
 import { useState } from "react";
 import path from "path";
 import { promises as fs } from 'fs'
@@ -58,8 +58,9 @@ const ProjectButton = ({ buttonText, popupText, color, popupColor, href }: Proje
 							color={color ? color : "primary"}
 							onMouseOver={() => setOpened((o) => true)}
 							onMouseLeave={() => setOpened((o) => false)}
+							style={{fontFamily: 'Lora'}}
 						>
-							{buttonText ? buttonText : "Button"}
+							<i>{buttonText ? buttonText : "Button"}</i>
 						</Button>
 					</Link>
 				}
@@ -100,6 +101,19 @@ const Home: NextPage = ({
 							: theme.colors.gray[0],
 				},
 			})}>
+				<Title order={1} align='center' sx={(theme) => ({
+					transition: 'all 0.5s ease-out',
+					color:
+						theme.colorScheme === "dark"
+							? theme.colors.gray[0]
+							: theme.colors.blue[8],
+					paddingBottom: '15vh',
+					fontFamily: 'Lora',
+					'&:hover': {
+						color: theme.colors.red[8],
+						
+					}
+			})}><i>works by M</i></Title>
 					<Group position="center" spacing="xl">
 						<ProjectButton
 							color="green"
@@ -108,10 +122,10 @@ const Home: NextPage = ({
 							href="/projects"
 						></ProjectButton>
 						<Link passHref href="/todo">
-							<Button size="xl">Info</Button>
+							<Button size="xl" style={{fontFamily: 'Lora'}}><i>Info</i></Button>
 						</Link>
 						<Link passHref href="/todo">
-							<Button size="xl">Links</Button>
+							<Button size="xl" style={{fontFamily: 'Lora'}}><i>Links</i></Button>
 						</Link>
 					</Group>
 				</Container>
