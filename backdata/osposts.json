@@ -1,5 +1,17 @@
 {
-    "Posts":{
-        "notes": "Auf Schrank liegt Iron-Man Figur + Konfetti von 100 Abo Stream"
-    }
+    "posts":[
+        {
+            "title": "Neuer Leak !!!",
+            "notes": "Auf Schrank liegt Iron-Man Figur + Konfetti von 100 Abo Stream",
+            "image": "",
+            "tags": ["leak", "exclusive", "Konfetti"]
+        },
+        {
+            "title": "Fake schrank aufgetaucht",
+            "notes": "",
+            "image": "https://i.imgur.com/xIXAnqT.png",
+            "tags": ["fake"]
+        }
+    ]
+
 }

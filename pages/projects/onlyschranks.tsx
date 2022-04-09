@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from "next";
 import {
 	AppShell,
 	Navbar,
@@ -18,6 +18,30 @@ import {
 import { useState } from "react";
 import Link from "next/link";
 import Head from "next/head";
+import path from "path";
+import { promises as fs } from "fs";
+
+class PostData {
+	constructor(
+		public title: string,
+		public notes: string,
+		public image: string,
+		public tags: string[]
+	) {}
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+	const backendData = path.join(process.cwd(), "backdata");
+	const files = await fs.readdir(backendData);
+	const fileContents = await fs.readFile(
+		path.join(backendData, files.filter((f) => f.startsWith("osposts"))[0]),
+		"utf8"
+	);
+	const posts = JSON.parse(fileContents).posts as PostData[];
+	return {
+		props: { posts: await Promise.all(posts) }, // will be passed to the page component as props
+	};
+};
 
 type PostProps = { title?: string; description?: string; imglink?: string };
 
@@ -66,7 +90,9 @@ const Post = ({ title, description, imglink }: PostProps) => {
 	);
 };
 
-const Onlyschranks: NextPage = () => {
+const Onlyschranks: NextPage = ({
+	posts,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
 	const theme = useMantineTheme();
 	const [opened, setOpened] = useState(false);
 	return (
@@ -93,7 +119,12 @@ const Onlyschranks: NextPage = () => {
 						width={{ sm: 200, lg: 300 }}
 					>
 						<Stack spacing="xl">
+						<Link
+								passHref
+								href="/projects/onlyschranks"
+							>
 							<Button>Start</Button>
+							</Link>
 							<Button>Benachrichtigungen</Button>
 							<Button>Nachichten</Button>
 							<Button>Abonnements</Button>
@@ -125,7 +156,15 @@ const Onlyschranks: NextPage = () => {
 							<MediaQuery largerThan="sm" styles={{ paddingLeft: "3vh" }}>
 								<Link passHref href="/projects">
 									<Title order={1}>
-										<Text color={theme.white} inherit component="span">
+										<Text
+											color={
+												theme.colorScheme === "dark"
+													? theme.colors.dark[0]
+													: theme.colors.gray[8]
+											}
+											inherit
+											component="span"
+										>
 											Only
 										</Text>
 										<Text color={theme.primaryColor} inherit component="span">
@@ -139,8 +178,6 @@ const Onlyschranks: NextPage = () => {
 				}
 			>
 				<Stack
-					align="center"
-					justify="flex-start"
 					spacing="xs"
 					sx={(theme) => ({
 						backgroundColor:
@@ -150,26 +187,17 @@ const Onlyschranks: NextPage = () => {
 						height: "auto",
 					})}
 				>
-					<Post
-						title="Demo"
-						description="Lorem Ipsum dolor sit amet"
-						imglink="https://i.imgur.com/xKigxoX.jpg"
-					/>
-					<Post
-						title="Demo"
-						description="Lorem Ipsum dolor sit amet"
-						imglink="https://i.imgur.com/xKigxoX.jpg"
-					/>
-					<Post
-						title="Demo"
-						description="Lorem Ipsum dolor sit amet"
-						imglink="https://i.imgur.com/xKigxoX.jpg"
-					/>
-					<Post
-						title="Demo"
-						description="Lorem Ipsum dolor sit amet"
-						imglink="https://i.imgur.com/xKigxoX.jpg"
-					/>
+					{posts.map((post: PostData) => {
+						const { title, notes, image } = post;
+						return (
+							<Post
+								key={posts.indexOf(post)}
+								title={title}
+								description={notes}
+								imglink={image}
+							/>
+						);
+					})}
 				</Stack>
 			</AppShell>
 		</>
