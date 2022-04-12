@@ -23,6 +23,14 @@
             "image":"https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://github.com&size=256",
             "color":"0077b6",
             "tags": ["github", "processing", "generative", "art", "images"]
+        },
+        {
+            "name":"Dynamic Splitting",
+            "description":"Dynamically split 2d geometry along a line",
+            "link":"/projects/dsplit",
+            "image":"",
+            "color":"01949a",
+            "tags": ["mesh", "2d", "generative", "art", "ongoing"]
         }
     ]
 }

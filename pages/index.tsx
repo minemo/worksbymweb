@@ -124,7 +124,7 @@ const Home: NextPage = ({
 						<Link passHref href="/todo">
 							<Button size="xl" style={{fontFamily: 'Lora'}}><i>Info</i></Button>
 						</Link>
-						<Link passHref href="/todo">
+						<Link passHref href="/links">
 							<Button size="xl" style={{fontFamily: 'Lora'}}><i>Links</i></Button>
 						</Link>
 					</Group>
