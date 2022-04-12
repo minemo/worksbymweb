@@ -23,7 +23,7 @@ const Links: NextPage = () => {
 				})}
 			>
 				<Center style={{ paddingBottom: "2vh" }}>
-					<SimpleGrid cols={3} spacing="xl">
+					<SimpleGrid cols={3} spacing="xl" breakpoints={[{ maxWidth: 755, cols: 1}]}>
 						<Link passHref href="https://www.instagram.com/makingminemo/">
 							<Avatar radius="xl" size="xl" src={null} color="red">
 								<BrandInstagram size={64} />
