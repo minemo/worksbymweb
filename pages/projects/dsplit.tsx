@@ -106,7 +106,7 @@ const Dsplit: NextPage = () => {
 			<Link passHref href="/projects">
 				<h1 style={{ position: "absolute" }}>Dynamic Mesh Splitting</h1>
 			</Link>
-			<Canvas></Canvas>
+			{/* <Canvas></Canvas> */}
 		</div>
 	);
 };
