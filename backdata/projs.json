@@ -14,7 +14,7 @@
             "link":"/projects/onlyschranks",
             "image":"https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://onlyfans.com&size=256",
             "color":"f652a0",
-            "tags": ["onlyfans", "schrank", "images", "chat"]
+            "tags": ["Onlyfans", "schrank", "images"]
         },
         {
             "name":"Processing Projects",
@@ -22,15 +22,23 @@
             "link":"https://github.com/minemo/processing4sketches",
             "image":"https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://github.com&size=256",
             "color":"0077b6",
-            "tags": ["github", "processing", "generative", "art", "images"]
+            "tags": ["Github", "Processing", "generative", "art", "images"]
         },
         {
-            "name":"Dynamic Splitting",
-            "description":"Dynamically split 2d geometry along a line",
-            "link":"/projects/dsplit",
+            "name":"TouchDesigner Projects",
+            "description":"Various projects made with TouchDesigner (not online yet)",
+            "link":"/projects",
+            "image":"https://t1.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://derivative.ca&size=256",
+            "color":"010101",
+            "tags": ["TouchDesigner", "generative", "art", "images", "interactive"]
+        },
+        {
+            "name":"Generative Artworks",
+            "description":"A collection of generative artworks by me",
+            "link":"/projects/generative",
             "image":"",
-            "color":"01949a",
-            "tags": ["mesh", "2d", "generative", "art", "ongoing"]
+            "color":"333652",
+            "tags": ["TouchDesigner", "processing", "generative", "art", "images", "interactive"]
         }
     ]
 }

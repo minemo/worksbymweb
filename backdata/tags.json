@@ -1,0 +1,30 @@
+{
+	"TouchDesigner": {
+		"id": 0,
+		"color": "#FFFFFF"
+	},
+	"processing": {
+		"id": 1,
+		"color": "#FFFFFF"
+	},
+	"generative": {
+		"id": 2,
+		"color": "#FFFFFF"
+	},
+	"art": {
+		"id": 3,
+		"color": "#FFFFFF"
+	},
+	"interactive": {
+		"id": 4,
+		"color": "#FFFFFF"
+	},
+	"Github": {
+		"id": 5,
+		"color": "#000000"
+	},
+	"images": {
+		"id": 6,
+		"color": "#FFFFFF"
+	}
+}

@@ -121,7 +121,7 @@ const Home: NextPage = ({
 							popupText={data.length ? `Currently ${data.length} projects` : "No projects"}
 							href="/projects"
 						></ProjectButton>
-						<Link passHref href="/todo">
+						<Link passHref href="/info">
 							<Button size="xl" style={{fontFamily: 'Lora'}}><i>Info</i></Button>
 						</Link>
 						<Link passHref href="/links">
